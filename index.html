@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
         body {
-            background: linear-gradient(135deg, #f6d365, #fda085);
+            background: linear-gradient(135deg, #cfd9df, #e2ebf0); /* Soft pastel blue-to-purple */
             font-family: 'Great Vibes', cursive;
             text-align: center;
             display: flex;
@@ -27,50 +27,27 @@
             display: inline-block;
             opacity: 1;
         }
-        .btn-container {
-            margin-top: 20px;
-        }
-        .btn {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            margin: 10px;
-        }
-        .yes-btn {
-            background-color: #6fd08c;
-            color: white;
-        }
-        .no-btn {
-            background-color: #ff6b6b;
-            color: white;
-        }
-        .btn:hover {
-            transform: scale(1.1);
-        }
     </style>
 </head>
 <body>
     <div class="message-box" id="message"></div>
-    <div class="btn-container" id="buttons" style="display: none;">
-        <button class="btn yes-btn" onclick="finalMessage()">Yes</button>
-        <button class="btn no-btn" onclick="forceYes()">No</button>
-    </div>
 
     <script>
         const messages = [
-            "Hey Veer",
+            "Hey Veer,",
             "I have something to tell you...",
             "I never thought we would come across each other in life and get along so much...",
             "I never dreamt of how my partner should look, or how hot he should be...",
             "Now I feel you are someone I never dreamt of, a friend I never had in my life...",
             "Distance has never been a barrier for our hearts. Every moment apart has only made my love for you stronger, my dreams of us clearer, and my certainty about us unshakable.",
             "From our late-night talks to the quiet moments where words weren’t needed, you’ve become my safe place, my greatest adventure, and my home—no matter how many miles stand between us.",
-            "So today, through this message, across all the distance, I ask you—Veer, will you marry me? Will you walk this life with me, hand in hand, no matter where we are in the world?",
-            "Say yes, and let’s turn our love story into forever. 💍❤️"
+            "Distance may keep us apart physically, but nothing can change how close you are to my heart. Every day, I am grateful for you—for your love, your kindness, and the way you make me feel even when miles separate us.",
+            "I miss you more than words can say, but I know that every day apart is just one step closer to the moment we’ll finally be together again.",
+            "Until then, know that I’m always thinking of you, loving you, and counting down the days.",
+            "You are my favorite person, my best decision, and my greatest happiness. I love you endlessly.",
+            "Happy Valentine’s Day, my love! ❤️"
         ];
+        
         let index = 0;
         let messageBox = document.getElementById("message");
 
@@ -79,7 +56,7 @@
                 messageBox.textContent += text.charAt(i);
                 setTimeout(() => typeMessage(text, i + 1, callback), 100);
             } else {
-                setTimeout(callback, 5000);
+                setTimeout(callback, 3000);
             }
         }
         
@@ -90,21 +67,9 @@
                     index++;
                     showMessage();
                 });
-            } else {
-                document.getElementById("buttons").style.display = "block";
             }
         }
         showMessage();
-        
-        function finalMessage() {
-            messageBox.textContent = "I love you ❤️";
-            document.getElementById("buttons").style.display = "none";
-        }
-        
-        function forceYes() {
-            document.querySelector(".no-btn").textContent = "Yes";
-            document.querySelector(".no-btn").onclick = finalMessage;
-        }
     </script>
 </body>
 </html>
