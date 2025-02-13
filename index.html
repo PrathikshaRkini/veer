@@ -83,19 +83,20 @@
                 messageBox.textContent += text.charAt(i);
                 setTimeout(() => typeMessage(text, i + 1, callback), 100);
             } else {
-                setTimeout(callback, 15000); // 15 seconds per message
+                setTimeout(callback, 10000); // 10 seconds per message
             }
         }
 
         function showMessage() {
             if (index < messages.length) {
-                messageBox.textContent = "";
+                messageBox.textContent = ""; // Ensure previous message is cleared
                 typeMessage(messages[index], 0, () => {
                     index++;
                     showMessage();
                 });
             }
         }
+
         showMessage();
 
         function createStar() {
