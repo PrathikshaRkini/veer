@@ -103,18 +103,14 @@
             star.classList.add("star");
             document.body.appendChild(star);
             
-            const startX = Math.random() * window.innerWidth;
-            const startY = Math.random() * window.innerHeight;
-            star.style.left = `${startX}px`;
-            star.style.top = `${startY}px`;
-            
-            const duration = Math.random() * 5 + 5;
-            star.style.animation = `moveStars ${duration}s linear infinite`;
+            star.style.left = `${Math.random() * window.innerWidth}px`;
+            star.style.top = `${Math.random() * window.innerHeight}px`;
+            star.style.animation = `moveStars ${Math.random() * 5 + 5}s linear infinite`;
             
             setTimeout(() => {
-                document.body.removeChild(star);
+                star.remove();
                 createStar();
-            }, duration * 1000);
+            }, 5000);
         }
 
         for (let i = 0; i < 50; i++) {
